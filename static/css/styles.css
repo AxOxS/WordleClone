@@ -1,0 +1,89 @@
+body {
+    background-color: #121213;
+    color: #d7dadc;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(6, 50px);
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+#grid div {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #3a3a3c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#keyboard {
+    display: grid;
+    grid-template-columns: repeat(10, 60px);
+    gap: 6px;
+    margin-top: 30px;
+}
+
+#keyboard button {
+    height: 40px;
+    width: 60px;
+    border: none;
+    background-color: #818384;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#keyboard button:hover {
+    background-color: #6d6d6f;
+}
+
+.reset-button {
+    height: 40px;
+    border: none;
+    background-color: #818384;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 5px; /* Adjust margin as needed */
+}
+
+.reset-button:hover {
+    background-color: #6d6d6f;
+}
+
+
+.correct {
+    background-color: #6aaa64 !important;
+}
+
+.present {
+    background-color: #c9b458 !important;
+}
+
+.absent {
+    background-color: #787c7e !important;
+}
