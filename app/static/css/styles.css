@@ -8,11 +8,8 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-<<<<<<< HEAD
-=======
     padding: 20px;
     box-sizing: border-box;
->>>>>>> parent of fe3a943 (screen modifications)
 }
 
 h1 {
@@ -47,16 +44,13 @@ h1 {
 
 #keyboard {
     display: grid;
-<<<<<<< HEAD
     grid-template-columns: repeat(10, 60px);
-    gap: 6px;
-    margin-top: 30px;
-=======
+    display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 6px;
     margin-top: 30px;
+    margin-top: 30px;
     max-width: 100%;
->>>>>>> parent of fe3a943 (screen modifications)
 }
 
 #keyboard button {
@@ -67,11 +61,8 @@ h1 {
     color: white;
     font-size: 16px;
     cursor: pointer;
-<<<<<<< HEAD
-=======
     padding: 0.5em;
     flex: 1 1 auto;
->>>>>>> parent of fe3a943 (screen modifications)
 }
 
 #keyboard button:hover {
@@ -86,11 +77,9 @@ h1 {
     font-size: 16px;
     cursor: pointer;
     margin-top: 5px; /* Adjust margin as needed */
-<<<<<<< HEAD
-=======
+    margin-top: 5px; /* Adjust margin as needed */
     padding: 0.5em;
     flex: 1 1 auto;
->>>>>>> parent of fe3a943 (screen modifications)
 }
 
 .reset-button:hover {
@@ -112,8 +101,7 @@ h1 {
 
 @media (max-width: 600px) {
     #grid {
-        grid-template-columns: repeat(5, 1fr); /* Allow cells to resize */
-        grid-template-rows: repeat(6, 1fr);
+        grid-template-rows: repeat(6, 40px); /* Adjust row height for smaller screens */
         gap: 4px;
     }
 
