@@ -4,7 +4,7 @@ import random
 app = Flask(__name__)
 
 # Load words from file
-with open('words.txt') as f:
+with open('app/words.txt') as f:
     words = [word.strip().lower() for word in f.read().splitlines()]
 
 # Choose a random word
@@ -15,7 +15,6 @@ secret_word = get_new_word()
 
 @app.route('/')
 def index():
-    global secret_word
     secret_word = get_new_word()  # Regenerate a new word on page load
     return render_template('index.html', secret_word=secret_word)
 
