@@ -8,16 +8,20 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 h1 {
     margin-bottom: 20px;
+    font-size: 2em;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 100%;
 }
 
 #grid {
@@ -42,9 +46,10 @@ h1 {
 
 #keyboard {
     display: grid;
-    grid-template-columns: repeat(10, 60px);
+    grid-template-columns: repeat(10, 1fr);
     gap: 6px;
     margin-top: 30px;
+    max-width: 100%;
 }
 
 #keyboard button {
@@ -55,6 +60,8 @@ h1 {
     color: white;
     font-size: 16px;
     cursor: pointer;
+    padding: 0.5em;
+    flex: 1 1 auto;
 }
 
 #keyboard button:hover {
@@ -69,6 +76,8 @@ h1 {
     font-size: 16px;
     cursor: pointer;
     margin-top: 5px; /* Adjust margin as needed */
+    padding: 0.5em;
+    flex: 1 1 auto;
 }
 
 .reset-button:hover {
@@ -86,4 +95,26 @@ h1 {
 
 .absent {
     background-color: #787c7e !important;
+}
+
+@media (max-width: 600px) {
+    #grid {
+        grid-template-columns: repeat(5, 1fr); /* Allow cells to resize */
+        grid-template-rows: repeat(6, 1fr);
+        gap: 4px;
+    }
+
+    #grid div {
+        width: auto;
+        height: auto;
+        font-size: 20px;
+    }
+
+    #keyboard {
+        grid-template-columns: repeat(10, 1fr); /* Make sure keyboard is responsive */
+    }
+
+    #keyboard button {
+        font-size: 14px;
+    }
 }
