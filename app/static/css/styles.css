@@ -8,7 +8,7 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
 }
 
@@ -26,42 +26,45 @@ h1 {
 
 #grid {
     display: grid;
-    grid-template-columns: repeat(5, 50px);
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(6, 50px);
     gap: 5px;
     margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
 }
 
 #grid div {
-    width: 50px;
+    width: 100px;
     height: 50px;
     border: 2px solid #3a3a3c;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 1.2em;
     font-weight: bold;
     text-transform: uppercase;
 }
 
 #keyboard {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 6px;
-    margin-top: 30px;
-    max-width: 100%;
+    margin-top: 10px;
+    width: 100%;
 }
 
 #keyboard button {
     height: 40px;
-    width: 60px;
-    border: none;
     background-color: #818384;
     color: white;
-    font-size: 16px;
+    font-size: 1em;
     cursor: pointer;
     padding: 0.5em;
-    flex: 1 1 auto;
+    flex: 1 0 20%; /* Make buttons flexible and fit within the row */
+    max-width: 60px;
+    margin: 2px; /* Add some margin between buttons */
 }
 
 #keyboard button:hover {
@@ -73,11 +76,10 @@ h1 {
     border: none;
     background-color: #818384;
     color: white;
-    font-size: 16px;
+    font-size: 1em;
     cursor: pointer;
-    margin-top: 5px; /* Adjust margin as needed */
+    margin-top: 10px; /* Adjust margin as needed */
     padding: 0.5em;
-    flex: 1 1 auto;
 }
 
 .reset-button:hover {
@@ -99,22 +101,17 @@ h1 {
 
 @media (max-width: 600px) {
     #grid {
-        grid-template-columns: repeat(5, 1fr); /* Allow cells to resize */
-        grid-template-rows: repeat(6, 1fr);
+        grid-template-rows: repeat(6, 40px); /* Adjust row height for smaller screens */
         gap: 4px;
     }
 
     #grid div {
-        width: auto;
-        height: auto;
-        font-size: 20px;
-    }
-
-    #keyboard {
-        grid-template-columns: repeat(10, 1fr); /* Make sure keyboard is responsive */
+        font-size: 1em;
+        height: 40px; /* Adjust cell height for smaller screens */
     }
 
     #keyboard button {
-        font-size: 14px;
+        height: 35px;
+        font-size: 0.9em;
     }
 }
