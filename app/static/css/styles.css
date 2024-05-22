@@ -53,6 +53,9 @@ h1 {
     gap: 6px;
     margin-top: 10px;
     width: 100%;
+    max-width: 300px; /* Limit the maximum width of the keyboard */
+    overflow: auto; /* Add scrollbar if keyboard overflows */
+    padding: 0 10px; /* Add some padding to prevent edge cutoff */
 }
 
 #keyboard button {
@@ -62,9 +65,10 @@ h1 {
     font-size: 1em;
     cursor: pointer;
     padding: 0.5em;
-    flex: 1 0 20%; /* Make buttons flexible and fit within the row */
+    flex: 1 0 calc(20% - 12px); /* Make buttons flexible and fit within the row */
     max-width: 60px;
     margin: 2px; /* Add some margin between buttons */
+    word-wrap: break-word; /* Allow button text to wrap */
 }
 
 #keyboard button:hover {
