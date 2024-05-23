@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, session
 import random
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'  # Set a secret key for session management
 
 # Load words from file
 with open('app/words.txt') as f:
@@ -11,17 +12,18 @@ with open('app/words.txt') as f:
 def get_new_word():
     return random.choice(words).lower()
 
-secret_word = get_new_word()
-
 @app.route('/')
 def index():
-    secret_word = get_new_word()  # Regenerate a new word on page load
-    return render_template('index.html', secret_word=secret_word)
+    # Generate a new word and store it in the session if not already present
+    if 'secret_word' not in session:
+        session['secret_word'] = get_new_word()
+    return render_template('index.html', secret_word=session['secret_word'])
 
 @app.route('/guess', methods=['POST'])
 def guess():
     data = request.get_json()
     guess = data['guess'].lower()
+    secret_word = session.get('secret_word')
     result = []
 
     for i in range(len(secret_word)):
@@ -32,7 +34,13 @@ def guess():
         else:
             result.append('absent')
     
-    return jsonify(result=result)
+    return jsonify(result=result, secret_word=secret_word)
+
+@app.route('/new_game', methods=['POST'])
+def new_game():
+    # Generate a new word for a new game
+    session['secret_word'] = get_new_word()
+    return jsonify(status='new game started')
 
 if __name__ == '__main__':
     app.run(debug=True)

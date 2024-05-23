@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(response => response.json())
             .then(data => {
+                const secretWord = data.secret_word;
                 for (let i = 0; i < cols; i++) {
                     const cell = grid.children[currentRow * cols + i];
                     cell.classList.add(data.result[i]);
@@ -104,7 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
         resetButton.textContent = 'New Game';
         resetButton.classList.add('reset-button');
         resetButton.addEventListener('click', () => {
-            window.location.reload();
+            fetch('/new_game', {
+                method: 'POST'
+            }).then(() => {
+                window.location.reload();
+            });
         });
         document.body.appendChild(resetButton);
     }
@@ -121,6 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteLetter();
             event.preventDefault();
         }
-    })
+    });
 
 });
