@@ -68,14 +68,14 @@ h1 {
 
 .reset-button {
     height: 40px;
+    width: auto;
     border: none;
     background-color: #818384;
     color: white;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 5px;
-    padding: 0.5em;
-    flex: 1 1 auto;
+    margin-top: 10px;
+    padding: 0.5em 1em;
 }
 
 .reset-button:hover {
@@ -120,7 +120,7 @@ h1 {
 
     .reset-button {
         height: 30px;
-        font-size: 12px;
-        padding: 0.3em;
+        font-size: 14px;
+        padding: 0.3em 0.6em;
     }
 }
